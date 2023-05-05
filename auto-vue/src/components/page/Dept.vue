@@ -6,8 +6,8 @@
     <el-input v-model="query.deptName" placeholder="部门名" clearable></el-input>
     </el-form-item>
    <el-form-item>
-          <el-button type="primary" @click="getData()">查询</el-button>
-          <el-button type="primary" @click="reset()">重置</el-button>
+          <el-button type="primary" plain icon="el-icon-search" @click="getData()">查询</el-button>
+          <el-button type="warning" plain icon="el-icon-refresh" @click="reset()">重置</el-button>
    </el-form-item>
    <el-form-item>
           <el-button type="primary" @click="addDeptInfo">添加</el-button>
@@ -28,7 +28,7 @@
        <el-table-column label="操作" fixed="right" header-align="center" align="center" width="150">
           <template slot-scope="scope">
             <el-button type="primary" size="small" @click="updateDeptInfo(scope.row)">更新</el-button>
-            <el-button type="primary" size="small" @click="delDeptInfo(scope.row.id,scope.row)">删除</el-button>
+            <el-button type="danger" size="small" @click="delDeptInfo(scope.row.id,scope.row)">删除</el-button>
           </template>
       </el-table-column>
      </el-table>

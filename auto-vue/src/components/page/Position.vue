@@ -10,16 +10,16 @@
         <div class="container">
             <div class="handle-box">
                 <el-input v-model="query.jobName" placeholder="请输入岗位信息" class="handle-input mr10"></el-input>
-                <el-button type="primary" icon="el-icon-search" @click="getJobInfo" style="margin-left: 20px">查询</el-button>
-                <el-button type="primary" icon="el-icon-refresh" @click="reset">重置</el-button>
+                <el-button type="primary" plain icon="el-icon-search" @click="getJobInfo" style="margin-left: 20px">查询</el-button>
+                <el-button type="warning" plain icon="el-icon-refresh" @click="reset">重置</el-button>
             </div>
             <div class="handle-box">
                 <el-button style="margin-bottom: 10px"
-                           type="primary"
+                           type="success"
                            icon="el-icon-plus"
                            class="handle-del mr10"
                            @click="addJobInfo"
-                >新增</el-button>
+                >新增职位</el-button>
             </div>
             <el-table
                     :data="tableData"

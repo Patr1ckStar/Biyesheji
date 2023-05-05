@@ -7,7 +7,7 @@
         </el-breadcrumb-item>
       </el-breadcrumb>
     </div>
-    <div class="container">
+    <div class="container" v-if="dataReady">
       <div class="handle-box">
         <el-input v-model="query.notice" placeholder="请输入公告内容" class="handle-input mr10"></el-input>
         <el-button type="primary" icon="el-icon-search" @click="getNoticeInfo" style="margin-left: 20px">查询</el-button>
@@ -29,8 +29,16 @@
               header-cell-class-name="table-header"
       >
         <el-table-column type="index" label="编号" width="80" align="center"></el-table-column>
-        <el-table-column prop="notice" label="公告"  align="center"></el-table-column>
-        <el-table-column label="操作" width="280" align="center">
+        <el-table-column prop="senderId" label="发布人"  align="center"></el-table-column>
+        <el-table-column prop="receiverId" label="通知对象"  align="center"></el-table-column>
+        <el-table-column prop="notice" label="通知内容"  align="center"></el-table-column>
+        <el-table-column prop="documentName" label="附件" align="center">
+          <template slot-scope="scope">
+            <span style="cursor: pointer;color: green" v-if="scope.row.documentUrl !=null" @click="downloadPaper(scope.row.documentUrl,scope.row.realname)">文件</span>
+            <span v-else>暂无</span>
+          </template>
+        </el-table-column>
+        <!-- <el-table-column label="操作" width="280" align="center">
           <template slot-scope="scope">
             <el-button
                     type="primary"
@@ -43,7 +51,7 @@
                     @click="delNoticeInfo(scope.row.id)"
             >删除</el-button>
           </template>
-        </el-table-column>
+        </el-table-column> -->
       </el-table>
       <div class="pagination">
         <el-pagination
@@ -92,6 +100,7 @@
         addVisible:false,
         form:{},
         jobList:[],
+        dataReady:false,
 
       };
     },
@@ -107,8 +116,20 @@
       getData() {
         getNoticeList(this.query).then(res => {
           if (res.code === 1) {
-            this.tableData = res.data.list;
-            this.pageTotal = res.data.total;
+            var num=res.data.endRow
+            var i=0;
+            var j=0;
+            for ( i = 0; i < num; i++) {
+              if((res.data.list[i].receiverId==0)||(res.data.list[i].receiverId == sessionStorage.getItem('userId'))){
+                this.tableData[j] = res.data.list[i]
+                j++;
+              }
+            }
+            
+            // this.tableData = res.data.list;
+            // this.pageTotal = res.data.total;
+            console.log(this.tableData)
+            this.dataReady = true
           }else {
             this.$message.error('数据回显异常')
           }

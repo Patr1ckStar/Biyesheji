@@ -6,17 +6,18 @@
 					<el-input v-model="query.realName" placeholder="姓名" clearable></el-input>
 				</el-form-item>
 				<el-form-item>
-					<el-button type="primary" @click="getData()">查询</el-button>
-					<el-button type="primary" @click="reset()">重置</el-button>
+					<el-button type="primary" plain @click="getData()">查询</el-button>
+					<el-button type="warning" plain @click="reset()">重置</el-button>
 				</el-form-item>
 				<el-form-item>
-					<el-button type="primary" @click="addInviteInfo">添加</el-button>
-				</el-form-item>
-				<el-form-item>
-					<el-button :disabled="this.multipleSelection.length === 0" type="primary"
+					<el-button :disabled="this.multipleSelection.length === 0" type="danger" plain
 						@click="delBatchInviteInfo">批量删除</el-button>
 				</el-form-item>
 			</el-form>
+			<div class="handle-box">
+        		<el-button style="margin-bottom: 10px" type="success" icon="el-icon-plus"
+          		class="handle-del mr10" @click="addInviteInfo">录入入职信息</el-button>
+     		 </div>
 			<el-table v-loading="tableDataLoading" :data="tableData" border @selection-change="selectionChange"
 				style="width: 100%;">
 				<el-table-column type="selection" header-align="center" align="center" width="50"></el-table-column>
@@ -42,7 +43,7 @@
 				<el-table-column label="操作" fixed="right" header-align="center" align="center" width="150">
 					<template slot-scope="scope">
 						<el-button type="primary" size="small" @click="updateInviteInfo(scope.row)">更新</el-button>
-						<el-button type="primary" size="small" @click="delInviteInfo(scope.row.id)">删除</el-button>
+						<el-button type="danger" size="small" @click="delInviteInfo(scope.row.id)">删除</el-button>
 					</template>
 				</el-table-column>
 			</el-table>

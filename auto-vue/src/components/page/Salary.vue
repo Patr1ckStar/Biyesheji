@@ -166,10 +166,10 @@
             }
             console.log(this.yData)
             console.log(this.tableData)
-			this.initEcharts();
-          }else {
-            this.$message.error('数据回显异常')
-          }
+            this.initEcharts();
+                }else {
+                  this.$message.error('数据回显异常')
+                }
         });
 
 

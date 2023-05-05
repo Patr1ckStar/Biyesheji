@@ -29,5 +29,9 @@ public class Notice implements Serializable {
 
     private String documentUrl;
 
+    private Integer senderId;
+
+    private Integer receiverId;
+
 
 }

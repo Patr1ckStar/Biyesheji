@@ -2,12 +2,30 @@
 	<div class="container">
 		<div>
 			<el-row :gutter="50" style="">
-				<el-col :span="12">
+				<el-col :span="6">
 					<el-card>
 						<div style="text-align: center;font-size: 28px;font-weight: bold;">我的信息</div>
 						<div style="text-align: center;">
 							<img style="border-radius: 100%;width: 300px;height: 300px;"
 								:src="userinfo.imageUrl" />
+							<div>{{userinfo.realName}}</div>
+							<div>{{userinfo.jobName}}</div>
+						</div>
+					</el-card>
+				</el-col>
+				<el-col :span="6">
+					<el-card>
+						<div style="text-align: center;font-size: 28px;font-weight: bold;">公告栏</div>
+						<div style="text-align: center;width: 360px;height: 357px;">
+							<el-row :gutter="10">
+	
+							</el-row>
+							<el-row :gutter="10">
+	
+							</el-row>
+							<el-row :gutter="10">
+	
+							</el-row>
 							<div>{{userinfo.realName}}</div>
 							<div>{{userinfo.jobName}}</div>
 						</div>

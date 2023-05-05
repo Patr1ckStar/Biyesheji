@@ -65,6 +65,16 @@ const router = new Router({
                     meta: { title: '部门信息' }
                 },
                 {
+                    path: '/Notice',
+                    component: () => import(/* webpackChunkName: "icon" */ '../components/page/Notice'),
+                    meta: { title: '通知页面' }
+                },
+                {
+                    path: '/MyNotice',
+                    component: () => import(/* webpackChunkName: "icon" */ '../components/page/MyNotice'),
+                    meta: { title: '通知页面' }
+                },
+                {
                     path: '/invite',
                     component: () => import(/* webpackChunkName: "icon" */ '../components/page/Invite'),
                     meta: { title: '入职信息' }

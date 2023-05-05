@@ -29,8 +29,10 @@
               header-cell-class-name="table-header"
       >
         <el-table-column type="index" label="编号" width="80" align="center"></el-table-column>
-        <el-table-column prop="notice" label="公告"  align="center"></el-table-column>
-        <el-table-column prop="documentName" label="文档" align="center">
+        <el-table-column prop="senderId" label="发布人"  align="center"></el-table-column>
+        <el-table-column prop="receiverId" label="通知对象"  align="center"></el-table-column>
+        <el-table-column prop="notice" label="通知内容"  align="center"></el-table-column>
+        <el-table-column prop="documentName" label="附件" align="center">
           <template slot-scope="scope">
             <span style="cursor: pointer;color: green" v-if="scope.row.documentUrl !=null" @click="downloadPaper(scope.row.documentUrl,scope.row.realname)">文件</span>
             <span v-else>暂无</span>
@@ -108,6 +110,7 @@
     },
     created() {
       this.getData();
+      console.log(this.tableData)
     },
 
 
@@ -124,6 +127,7 @@
        */
       getData() {
         getNoticeList(this.query).then(res => {
+          
           if (res.code === 1) {
             this.tableData = res.data.list;
             this.pageTotal = res.data.total;
@@ -161,7 +165,7 @@
     downloadPaper(url, name) {// 下载图片地址和图片名
     window.location.href = url;
 
-  },
+    },
       editNoticeInfo(row){
         this.form.id = row.id;
         this.form = JSON.parse(JSON.stringify(row));

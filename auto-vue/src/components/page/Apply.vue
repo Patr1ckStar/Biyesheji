@@ -9,9 +9,9 @@
     </div>
     <div class="container">
       <div class="handle-box">
-        <el-input v-model="query.realName" placeholder="请输入请假时间" class="handle-input mr10"></el-input>
-        <el-button type="primary" icon="el-icon-search" @click="getApplyInfo" style="margin-left: 20px">查询</el-button>
-        <el-button type="primary" icon="el-icon-refresh" @click="reset">重置</el-button>
+        <el-input v-model="query.realName" placeholder="请输入申请人" class="handle-input mr10"></el-input>
+        <el-button type="primary" plain icon="el-icon-search" @click="getApplyInfo" style="margin-left: 20px">查询</el-button>
+        <el-button type="warning" plain icon="el-icon-refresh" @click="reset">重置</el-button>
       </div>
       <div class="handle-box" v-if="userType === '2'">
         <el-button style="margin-bottom: 10px"
@@ -54,10 +54,10 @@
                     type="primary"
                     icon="el-icon-edit"
                     @click="editApplyInfo(scope.row)"
-            >编辑</el-button>
+            >审批</el-button>
             <el-button
-                    type="primary"
-                    icon="el-icon-edit"
+                    type="danger"
+                    icon="el-icon-delete"
                     @click="delApplyInfo(scope.row.id)"
             >删除</el-button>
           </template>

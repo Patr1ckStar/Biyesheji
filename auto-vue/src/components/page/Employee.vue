@@ -10,12 +10,12 @@
     <div class="container">
       <div class="handle-box" v-if="userType === '1'">
         <el-input v-model="query.realName" placeholder="请输入员工姓名" class="handle-input mr10"></el-input>
-        <el-button type="primary" icon="el-icon-search" @click="getUserInfo" style="margin-left: 20px">查询</el-button>
-        <el-button type="primary" icon="el-icon-refresh" @click="reset">重置</el-button>
+        <el-button type="primary" plain icon="el-icon-search" @click="getUserInfo" style="margin-left: 20px">查询</el-button>
+        <el-button type="warning" plain icon="el-icon-refresh" @click="reset">重置</el-button>
       </div>
       <div class="handle-box">
-        <el-button style="margin-bottom: 10px" type="primary" v-if="userType === '1'" icon="el-icon-plus"
-          class="handle-del mr10" @click="addUserInfo">新增</el-button>
+        <el-button style="margin-bottom: 10px" type="success" v-if="userType === '1'" icon="el-icon-plus"
+          class="handle-del mr10" @click="addUserInfo">新增员工</el-button>
       </div>
       <el-table :data="tableData" border class="table" ref="multipleTable" header-cell-class-name="table-header">
         <el-table-column type="index" label="编号" width="80" align="center"></el-table-column>
@@ -50,7 +50,7 @@
         <el-table-column label="操作" width="280" align="center">
           <template slot-scope="scope">
             <el-button type="primary" icon="el-icon-edit" @click="editUserInfo(scope.row)">编辑</el-button>
-            <el-button type="primary" v-if="userType === '1'" icon="el-icon-edit"
+            <el-button type="danger"  v-if="userType === '1'" icon="el-icon-delete"
               @click="delUserInfo(scope.row.id)">删除</el-button>
           </template>
         </el-table-column>
