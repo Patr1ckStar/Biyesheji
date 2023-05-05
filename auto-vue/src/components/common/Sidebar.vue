@@ -129,7 +129,7 @@ export default {
                         "id":4,
                         "pid":1,
                         "icon":"el-icon-zhandianshujutongji",
-                        "index":"3",
+                        "index":"2",
                         "title":"数据统计",
                         "subs":[
                             
