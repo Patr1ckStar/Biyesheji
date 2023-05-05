@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xxx.modules.mapper.ApplyMapper">
+
+    <select id="selectList2" resultType="com.xxx.modules.entity.Apply">
+        select a.*,u.real_name,u.email from apply a left join `user` u on a.user_id=u.id where 1=1
+        <if test="realName !=null">
+            and u.real_name like concat('%',#{realName,jdbcType=VARCHAR},'%')
+        </if>
+        <if test="userId !=null">
+            and a.user_id=#{userId}
+        </if>
+    </select>
+</mapper>
