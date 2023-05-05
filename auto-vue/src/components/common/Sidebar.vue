@@ -60,72 +60,41 @@ export default {
             items:[],
             itemList: [
                     {
+                        "id":10,
+                        "pid":5,
+                        "icon":"el-icon-date",
+                        "index":"sign",
+                        "title":"我的签到",
+                        "subs":null
+                    },
+                    {   
+                        
                         "id":4,
                         "pid":1,
-                        "icon":"el-icon-s-order",
+                        "icon":"el-icon-setting",
                         "index":"3",
-                        "title":"统一管理",
+                        "title":"信息管理",
                         "subs":[
                             {
                                 "id":9,
                                 "pid":4,
-                                "icon":"el-icon-plus",
+                                "icon":"el-icon-yuangongxinxi",
                                 "index":"employee",
                                 "title":"员工信息",
                                 "subs":null
                             },
                             {
-                            "id":10,
-                            "pid":5,
-                            "icon":"el-icon-document",
-                            "index":"sign",
-                            "title":"我的签到",
-                            "subs":null
-                            },
-                            {
                                 "id":9,
                                 "pid":4,
-                                "icon":"el-icon-plus",
-                                "index":"apply",
-                                "title":"申请审批",
-                                "subs":null
-                            },
-                            {
-                                "id":9,
-                                "pid":4,
-                                "icon":"el-icon-plus",
-                                "index":"salary",
-                                "title":"工资报表",
-                                "subs":null
-                            },
-                            {
-                                "id":9,
-                                "pid":4,
-                                "icon":"el-icon-plus",
+                                "icon":"el-icon-01zhushuju_zhiweixinxi",
                                 "index":"position",
                                 "title":"职位信息",
                                 "subs":null
                             },
                             {
-                                "id":9,
-                                "pid":4,
-                                "icon":"el-icon-plus",
-                                "index":"all-sign",
-                                "title":"所有签到",
-                                "subs":null
-                            },
-                            // {
-                            //     "id":10,
-                            //     "pid":4,
-                            //     "icon":"el-icon-plus",
-                            //     "index":"message",
-                            //     "title":"留言信息",
-                            //     "subs":null
-                            // },
-                            {
                                 "id":10,
                                 "pid":4,
-                                "icon":"el-icon-plus",
+                                "icon":"el-icon-bumen",
                                 "index":"dept",
                                 "title":"部门信息",
                                 "subs":null
@@ -133,7 +102,7 @@ export default {
                             {
                                 "id":10,
                                 "pid":4,
-                                "icon":"el-icon-plus",
+                                "icon":"el-icon-ruzhi",
                                 "index":"invite",
                                 "title":"入职信息",
                                 "subs":null
@@ -141,130 +110,149 @@ export default {
                             {
                                 "id":10,
                                 "pid":4,
-                                "icon":"el-icon-plus",
+                                "icon":"el-icon-lizhi",
                                 "index":"invite2",
                                 "title":"离职信息",
                                 "subs":null
                             },
                         ]
                     },
+                    {
+                        "id":9,
+                        "pid":4,
+                        "icon":"el-icon-qianshoushenpitongguo",
+                        "index":"apply",
+                        "title":"申请审批",
+                        "subs":null
+                    },
+                    {   
+                        "id":4,
+                        "pid":1,
+                        "icon":"el-icon-zhandianshujutongji",
+                        "index":"3",
+                        "title":"数据统计",
+                        "subs":[
+                            
+                            {
+                                "id":9,
+                                "pid":4,
+                                "icon":"el-icon-gongzifafang",
+                                "index":"salary",
+                                "title":"工资报表",
+                                "subs":null
+                            },
+                            {
+                                "id":9,
+                                "pid":4,
+                                "icon":"el-icon-qiandao",
+                                "index":"all-sign",
+                                "title":"所有签到",
+                                "subs":null
+                            },
+                        ]
+                    },
                   ],
             itemList2:[
-                {
-                    "id":5,
-                    "pid":1,
-                    "icon":"el-icon-s-data",
-                    "index":"6",
-                    "title":"员工管理",
-                    "subs":[
-
-                        {
-                            "id":11,
-                            "pid":5,
-                            "icon":"el-icon-document",
-                            "index":"employee",
-                            "title":"我的信息",
-                            "subs":null
-                        },
-                        
-                        {
-                            "id":10,
-                            "pid":5,
-                            "icon":"el-icon-document",
-                            "index":"sign",
-                            "title":"我的签到",
-                            "subs":null
-                        },
-
-                        {
+                    {
+                        "id":11,
+                        "pid":5,
+                        "icon":"el-icon-document",
+                        "index":"employee",
+                        "title":"我的信息",
+                        "subs":null
+                    },
+                    {
+                        "id":10,
+                        "pid":5,
+                        "icon":"el-icon-date",
+                        "index":"sign",
+                        "title":"我的签到",
+                        "subs":null
+                    },
+                    {
                             "id":9,
                             "pid":4,
-                            "icon":"el-icon-plus",
+                            "icon":"el-icon-shenqing",
                             "index":"MyApply",
                             "title":"我的申请",
                             "subs":null
-                        },
-                        {
+                    },
+                    {
                             "id":13,
                             "pid":5,
-                            "icon":"el-icon-document",
+                            "icon":"el-icon-gongzifafang",
                             "index":"my-salary",
                             "title":"我的薪资",
                             "subs":null
-                        },
-
-                    ]
-                }
-            ],
+                    }
+                    ],
             itemList3:[
-                {
-                    "id":5,
-                    "pid":1,
-                    "icon":"el-icon-s-data",
-                    "index":"6",
-                    "title":"HR管理",
-                    "subs":[
-
-                        {
-                            "id":11,
-                            "pid":5,
-                            "icon":"el-icon-document",
-                            "index":"employee",
-                            "title":"我的信息",
-                            "subs":null
-                        },
-                        {
-                            "id":10,
-                            "pid":5,
-                            "icon":"el-icon-document",
-                            "index":"sign",
-                            "title":"我的签到",
-                            "subs":null
-                        },
-                        {
-                            "id":9,
-                            "pid":4,
-                            "icon":"el-icon-plus",
-                            "index":"MyApply",
-                            "title":"我的申请",
-                            "subs":null
-                        },
-                        {
-                            "id":9,
-                            "pid":4,
-                            "icon":"el-icon-plus",
-                            "index":"apply",
-                            "title":"员工申请进度",
-                            "subs":null
-                        },
-
-                        {
-                            "id":13,
-                            "pid":5,
-                            "icon":"el-icon-document",
-                            "index":"my-salary",
-                            "title":"我的薪资",
-                            "subs":null
-                        },
-                        {
-                            "id":10,
-                            "pid":4,
-                            "icon":"el-icon-plus",
-                            "index":"invite",
-                            "title":"入职信息",
-                            "subs":null
-                        },
-                        {
-                            "id":10,
-                            "pid":4,
-                            "icon":"el-icon-plus",
-                            "index":"invite2",
-                            "title":"离职信息",
-                            "subs":null
-                        },
-                    ]
+                    {
+                        "id":11,
+                        "pid":5,
+                        "icon":"el-icon-document",
+                        "index":"employee",
+                        "title":"我的信息",
+                        "subs":null
+                    },
+                    {
+                        "id":10,
+                        "pid":5,
+                        "icon":"el-icon-date",
+                        "index":"sign",
+                        "title":"我的签到",
+                        "subs":null
+                    },
+                    {
+                        "id":9,
+                        "pid":4,
+                        "icon":"el-icon-shenqing",
+                        "index":"MyApply",
+                        "title":"我的申请",
+                        "subs":null
+                    },
+                    {
+                        "id":13,
+                        "pid":5,
+                        "icon":"el-icon-gongzifafang",
+                        "index":"my-salary",
+                        "title":"我的薪资",
+                        "subs":null
+                    },
+                    {
+                        "id":4,
+                        "pid":1,
+                        "icon":"el-icon-setting",
+                        "index":"3",
+                        "title":"信息管理",
+                        "subs":[
+                            {
+                                "id":9,
+                                "pid":4,
+                                "icon":"el-icon-shenqing",
+                                "index":"apply",
+                                "title":"员工申请进度",
+                                "subs":null
+                            },
+                            {
+                                "id":10,
+                                "pid":4,
+                                "icon":"el-icon-ruzhi",
+                                "index":"invite",
+                                "title":"入职信息",
+                                "subs":null
+                            },
+                            {
+                                "id":10,
+                                "pid":4,
+                                "icon":"el-icon-lizhi",
+                                "index":"invite2",
+                                "title":"离职信息",
+                                "subs":null
+                            },
+                        ],
                 }
-            ],
+            ]
         };
     },
     computed: {

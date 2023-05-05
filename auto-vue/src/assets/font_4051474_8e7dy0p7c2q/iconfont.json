@@ -1,0 +1,79 @@
+{
+  "id": "4051474",
+  "name": "毕设",
+  "font_family": "element-icons",
+  "css_prefix_text": "el-icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "6250266",
+      "name": "离职",
+      "font_class": "lizhi",
+      "unicode": "e6bb",
+      "unicode_decimal": 59067
+    },
+    {
+      "icon_id": "6332156",
+      "name": "申请",
+      "font_class": "shenqing",
+      "unicode": "e633",
+      "unicode_decimal": 58931
+    },
+    {
+      "icon_id": "22628135",
+      "name": "入职",
+      "font_class": "ruzhi",
+      "unicode": "e746",
+      "unicode_decimal": 59206
+    },
+    {
+      "icon_id": "4237384",
+      "name": "工资发放",
+      "font_class": "gongzifafang",
+      "unicode": "e62f",
+      "unicode_decimal": 58927
+    },
+    {
+      "icon_id": "1727340",
+      "name": "14签收、审批通过",
+      "font_class": "qianshoushenpitongguo",
+      "unicode": "e891",
+      "unicode_decimal": 59537
+    },
+    {
+      "icon_id": "2767477",
+      "name": "站点数据统计",
+      "font_class": "zhandianshujutongji",
+      "unicode": "e63e",
+      "unicode_decimal": 58942
+    },
+    {
+      "icon_id": "3001050",
+      "name": "部门",
+      "font_class": "bumen",
+      "unicode": "e651",
+      "unicode_decimal": 58961
+    },
+    {
+      "icon_id": "11239061",
+      "name": "签到",
+      "font_class": "qiandao",
+      "unicode": "e648",
+      "unicode_decimal": 58952
+    },
+    {
+      "icon_id": "19134720",
+      "name": "01 主数据_职位信息",
+      "font_class": "01zhushuju_zhiweixinxi",
+      "unicode": "e610",
+      "unicode_decimal": 58896
+    },
+    {
+      "icon_id": "19818710",
+      "name": "员工信息",
+      "font_class": "yuangongxinxi",
+      "unicode": "e60a",
+      "unicode_decimal": 58890
+    }
+  ]
+}
