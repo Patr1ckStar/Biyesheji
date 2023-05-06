@@ -67,8 +67,21 @@
     <!-- 添加弹出框 -->
     <el-dialog title="操作" :visible.sync="addVisible" width="30%">
       <el-form ref="form" :model="form" label-width="70px">
-        <el-form-item label="公告" label-width="100px" prop="roleName">
+        <el-form-item label="接收人" prop="realName">
+			  <el-select v-model="form.receiverId" placeholder="请选择">
+			    <el-option
+			            v-for="item in userlist"
+			            :key="item.id"
+			            :label="item.realName"
+			            :value="item.id">
+			    </el-option>
+			  </el-select>  
+			  </el-form-item>
+        <el-form-item label="公告"  prop="roleName">
           <el-input v-model="form.notice"></el-input>
+        </el-form-item>
+        <el-form-item label="文件" prop="userName">
+          <single-upload v-model="form.documentUrl"></single-upload>
         </el-form-item>
       </el-form>
       <span slot="footer" class="dialog-footer">
@@ -82,11 +95,13 @@
 
 <script>
 
-
+  import { getUserList} from '../../api/shool';
   import { getNoticeList, saveAndUpdateNoticeInfo, delNoticeInfo, getJobList } from '../../api/shool';
+  import SingleUpload from '../common/singleUpload';
 
   export default {
     name: 'Notice',
+    components: { SingleUpload },
     data() {
       return {
         query: {
@@ -94,6 +109,7 @@
           pageSize:10,
           notice:null
         },
+        userlist:[],
         tableData: [],
         option:[],
         pageTotal: 0,
@@ -120,7 +136,9 @@
             var i=0;
             var j=0;
             for ( i = 0; i < num; i++) {
-              if((res.data.list[i].receiverId==0)||(res.data.list[i].receiverId == sessionStorage.getItem('userId'))){
+              if((res.data.list[i].receiverId==0)
+                  ||(res.data.list[i].receiverId == sessionStorage.getItem('userId'))
+                  ||res.data.list[i].senderId==sessionStorage.getItem('userId')){
                 this.tableData[j] = res.data.list[i]
                 j++;
               }
@@ -133,7 +151,14 @@
           }else {
             this.$message.error('数据回显异常')
           }
-        });
+        })
+        getUserList({
+          pageNum:1,
+          pageSize:1000,
+          realName:null
+        }).then(res=>{
+			  this.userlist = res.data.list;
+		    })
       },
 
       addNoticeInfo(){
@@ -146,6 +171,7 @@
 
       saveAndUpdateNoticeInfo(){
         this.form.userType = '2';
+        this.form.senderId = sessionStorage.getItem('userId')
         saveAndUpdateNoticeInfo(this.form).then(res =>{
           if (res.code === 1){
             if (this.form.id == null){

@@ -1,8 +1,8 @@
 @font-face {
   font-family: "element-icons"; /* Project id 4051474 */
-  src: url('iconfont.woff2?t=1683290872483') format('woff2'),
-       url('iconfont.woff?t=1683290872483') format('woff'),
-       url('iconfont.ttf?t=1683290872483') format('truetype');
+  src: url('iconfont.woff2?t=1683344335909') format('woff2'),
+       url('iconfont.woff?t=1683344335909') format('woff'),
+       url('iconfont.ttf?t=1683344335909') format('truetype');
 }
 
 .element-icons {
@@ -11,6 +11,10 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.el-icon-tongzhizhongxin:before {
+  content: "\eb43";
 }
 
 .el-icon-lizhi:before {

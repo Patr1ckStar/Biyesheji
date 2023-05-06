@@ -128,9 +128,9 @@ export default {
                     {
                                 "id":9,
                                 "pid":4,
-                                "icon":"el-icon-gongzifafang",
+                                "icon":"el-icon-tongzhizhongxin",
                                 "index":"Notice",
-                                "title":"通知",
+                                "title":"通知管理",
                                 "subs":null
                             },
                     {   
@@ -194,13 +194,13 @@ export default {
                             "subs":null
                     },
                     {
-                                "id":9,
-                                "pid":4,
-                                "icon":"el-icon-gongzifafang",
-                                "index":"MyNotice",
-                                "title":"我的通知",
-                                "subs":null
-                            },
+                            "id":9,
+                            "pid":4,
+                            "icon":"el-icon-tongzhizhongxin",
+                            "index":"MyNotice",
+                            "title":"我的通知",
+                            "subs":null
+                        },
                     ],
             itemList3:[
                     {
@@ -234,6 +234,14 @@ export default {
                         "index":"my-salary",
                         "title":"我的薪资",
                         "subs":null
+                    },
+                    {
+                                "id":9,
+                                "pid":4,
+                                "icon":"el-icon-tongzhizhongxin",
+                                "index":"MyNotice",
+                                "title":"我的通知",
+                                "subs":null
                     },
                     {
                         "id":4,

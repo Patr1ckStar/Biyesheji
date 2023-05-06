@@ -2,7 +2,7 @@
 	<div class="container">
 		<div>
 			<el-row :gutter="50" style="">
-				<el-col :span="6">
+				<el-col :span="12">
 					<el-card>
 						<div style="text-align: center;font-size: 28px;font-weight: bold;">我的信息</div>
 						<div style="text-align: center;">
@@ -13,7 +13,7 @@
 						</div>
 					</el-card>
 				</el-col>
-				<el-col :span="6">
+				<!-- <el-col :span="6">
 					<el-card>
 						<div style="text-align: center;font-size: 28px;font-weight: bold;">公告栏</div>
 						<div style="text-align: center;width: 360px;height: 357px;">
@@ -30,7 +30,7 @@
 							<div>{{userinfo.jobName}}</div>
 						</div>
 					</el-card>
-				</el-col>
+				</el-col> -->
 				<el-col :span="12">
 					<el-card >
 						<div style="text-align: center;font-size: 28px;font-weight: bold;">签到排名</div>

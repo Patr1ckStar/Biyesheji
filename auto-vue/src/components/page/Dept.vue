@@ -9,12 +9,23 @@
           <el-button type="primary" plain icon="el-icon-search" @click="getData()">查询</el-button>
           <el-button type="warning" plain icon="el-icon-refresh" @click="reset()">重置</el-button>
    </el-form-item>
+   
    <el-form-item>
-          <el-button type="primary" @click="addDeptInfo">添加</el-button>
-        </el-form-item>
-   <el-form-item>
-          <el-button :disabled="this.multipleSelection.length === 0" type="primary" @click="delBatchDeptInfo">批量删除</el-button>
+          <el-button :disabled="this.multipleSelection.length === 0" 
+                      type="danger"
+                      plain
+                      icon="el-icon-delete"
+                       @click="delBatchDeptInfo"
+                       >批量删除</el-button>
    </el-form-item>
+   <div class="handle-box">
+                <el-button style="margin-bottom: 10px"
+                           type="success"
+                           icon="el-icon-plus"
+                           class="handle-del mr10"
+                           @click="addDeptInfo"
+                >添加部门</el-button>
+            </div>
   </el-form>
       <el-table v-loading="tableDataLoading" :data="tableData" border @selection-change="selectionChange" style="width: 100%;">
       <el-table-column type="selection" header-align="center" align="center" width="50"></el-table-column>
@@ -22,13 +33,16 @@
        <el-table-column prop="remark" label="描述信息" header-align="center" align="center"></el-table-column>
 	   <el-table-column prop="userList" label="部门人员" header-align="center" align="center">
 		   <template slot-scope="scope">
-		     <el-button type="primary" size="small" @click="LookDeptUser(scope.row)">查看</el-button>
+		     <el-button type="primary" size="small" @click="LookDeptUser(scope.row)"
+                    icon="el-icon-s-custom" round >查看</el-button>
 		   </template>
 	   </el-table-column>
-       <el-table-column label="操作" fixed="right" header-align="center" align="center" width="150">
+       <el-table-column label="操作" fixed="right" header-align="center" align="center" width="250">
           <template slot-scope="scope">
-            <el-button type="primary" size="small" @click="updateDeptInfo(scope.row)">更新</el-button>
-            <el-button type="danger" size="small" @click="delDeptInfo(scope.row.id,scope.row)">删除</el-button>
+            <el-button type="primary" @click="updateDeptInfo(scope.row)"
+                        icon="el-icon-edit">更新</el-button>
+            <el-button type="danger" size="small" @click="delDeptInfo(scope.row.id,scope.row)"
+                      icon="el-icon-delete">删除</el-button>
           </template>
       </el-table-column>
      </el-table>

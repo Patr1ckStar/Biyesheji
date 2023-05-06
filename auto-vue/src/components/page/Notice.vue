@@ -34,7 +34,7 @@
         <el-table-column prop="notice" label="通知内容"  align="center"></el-table-column>
         <el-table-column prop="documentName" label="附件" align="center">
           <template slot-scope="scope">
-            <span style="cursor: pointer;color: green" v-if="scope.row.documentUrl !=null" @click="downloadPaper(scope.row.documentUrl,scope.row.realname)">文件</span>
+            <span style="cursor: pointer;color: green" v-if="scope.row.documentUrl !=null" @click="downloadPaper(scope.row.documentUrl,scope.row.realname)">下载文件</span>
             <span v-else>暂无</span>
           </template>
         </el-table-column>
@@ -67,7 +67,17 @@
     <!-- 添加弹出框 -->
     <el-dialog title="操作" :visible.sync="addVisible" width="30%">
       <el-form ref="form" :model="form" label-width="70px">
-        <el-form-item label="公告" label-width="100px" prop="roleName">
+        <el-form-item label="接收人" prop="realName">
+			  <el-select v-model="form.receiverId" placeholder="请选择">
+			    <el-option
+			            v-for="item in userlist"
+			            :key="item.id"
+			            :label="item.realName"
+			            :value="item.id">
+			    </el-option>
+			  </el-select>  
+			  </el-form-item>
+        <el-form-item label="公告"  prop="roleName">
           <el-input v-model="form.notice"></el-input>
         </el-form-item>
         <el-form-item label="文件" prop="userName">
@@ -88,6 +98,7 @@
 
   import { getNoticeList, saveAndUpdateNoticeInfo, delNoticeInfo, getJobList } from '../../api/shool';
   import SingleUpload from '../common/singleUpload';
+  import { getUserList} from '../../api/shool';
 
   export default {
     name: 'Notice',
@@ -99,6 +110,7 @@
           pageSize:10,
           notice:null
         },
+        userlist:[],
         tableData: [],
         option:[],
         pageTotal: 0,
@@ -134,7 +146,14 @@
           }else {
             this.$message.error('数据回显异常')
           }
-        });
+        })
+        getUserList({
+          pageNum:1,
+          pageSize:1000,
+          realName:null
+        }).then(res=>{
+			  this.userlist = res.data.list;
+		    })
       },
 
       addNoticeInfo(){
@@ -144,6 +163,7 @@
 
       saveAndUpdateNoticeInfo(){
         this.form.userType = '2';
+        this.form.senderId = sessionStorage.getItem('userId')
         saveAndUpdateNoticeInfo(this.form).then(res =>{
           if (res.code === 1){
             if (this.form.id == null){

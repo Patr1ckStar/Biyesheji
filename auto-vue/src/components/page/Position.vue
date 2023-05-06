@@ -42,8 +42,8 @@
                                 @click="editJobInfo(scope.row)"
                         >编辑</el-button>
                         <el-button
-                                type="primary"
-                                icon="el-icon-edit"
+                                type="danger"
+                                icon="el-icon-delete"
                                 @click="delJobInfo(scope.row.id)"
                         >删除</el-button>
                     </template>

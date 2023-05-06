@@ -11,7 +11,7 @@
  Target Server Version : 80025
  File Encoding         : 65001
 
- Date: 06/05/2023 00:34:21
+ Date: 06/05/2023 12:00:09
 */
 
 SET NAMES utf8mb4;
@@ -181,6 +181,7 @@ INSERT INTO `notice` VALUES (8, '今天晚上一起吃饭11', NULL, 1, 16);
 INSERT INTO `notice` VALUES (11, '大家看下这个项目', 'https://gulimall-psw.oss-cn-hangzhou.aliyuncs.com/2023-02-07//c663ab9f-3f9d-4c39-8e0b-b925615c9629_预选题目(2).docx', 1, 16);
 INSERT INTO `notice` VALUES (12, '今天晚上吃饭', 'https://gulimall-psw.oss-cn-hangzhou.aliyuncs.com/2023-03-11//d5489fde-6328-44fd-8eb5-7d0ccddda772_核算报告.docx', 1, 21);
 INSERT INTO `notice` VALUES (13, '1231', NULL, 1, 21);
+INSERT INTO `notice` VALUES (17, '231', NULL, 2, 1);
 
 -- ----------------------------
 -- Table structure for user

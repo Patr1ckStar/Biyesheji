@@ -6,6 +6,13 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "5387730",
+      "name": "通知中心",
+      "font_class": "tongzhizhongxin",
+      "unicode": "eb43",
+      "unicode_decimal": 60227
+    },
+    {
       "icon_id": "6250266",
       "name": "离职",
       "font_class": "lizhi",

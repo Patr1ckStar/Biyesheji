@@ -99,7 +99,7 @@
 </template>
 
 <script>
-    import SingleUpload from '../common/singleUpload';
+  import SingleUpload from '../common/singleUpload';
   import { getUserList} from '../../api/shool';
   import {getInviteInfo,saveInviteInfo,updateInviteInfo,delInviteInfo,delBatchInviteInfo} from '../../api/invite'
 
@@ -110,7 +110,7 @@
 
     data () {
       return {
-		  userlist:[],
+		    userlist:[],
         tableData: [],
         query: {
           pageNum: 1,
@@ -154,12 +154,12 @@
           this.tableData = res.data.list;
           this.total = res.data.total;
         })
-		getUserList({
+		      getUserList({
           pageNum:1,
           pageSize:1000,
           realName:null
         }).then(res=>{
-			this.userlist = res.data.list;
+			  this.userlist = res.data.list;
 			// for (var i = 0; i < this.userlist.length; i++) {
 			// 	if(this.userlist[i].userType)
 			// }
