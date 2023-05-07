@@ -29,7 +29,8 @@
               header-cell-class-name="table-header"
       >
         <el-table-column type="index" label="编号" width="80" align="center"></el-table-column>
-        <el-table-column prop="senderId" label="发布人"  align="center"></el-table-column>
+        <el-table-column prop="noticeTime" label="通知时间"  align="center"></el-table-column>
+        <el-table-column prop="senderId" label="通知人"  align="center"></el-table-column>
         <el-table-column prop="receiverId" label="通知对象"  align="center"></el-table-column>
         <el-table-column prop="notice" label="通知内容"  align="center"></el-table-column>
         <el-table-column prop="documentName" label="附件" align="center">
@@ -143,6 +144,8 @@
           if (res.code === 1) {
             this.tableData = res.data.list;
             this.pageTotal = res.data.total;
+            console.log(res.data)
+            console.log(this.tableData)
           }else {
             this.$message.error('数据回显异常')
           }
@@ -160,10 +163,44 @@
         this.addVisible = true;
         this.form = {};
       },
+      currentTime() {
+        var date = new Date();
+        var year = date.getFullYear(); //月份从0~11，所以加一
+        let month = date.getMonth();
+        console.log("month",month);
+        var dateArr = [
+            date.getMonth() + 1,
+            date.getDate(),
+            date.getHours(),
+            date.getMinutes(),
+            date.getSeconds(),
+        ];
+        //如果格式是MM则需要此步骤，如果是M格式则此循环注释掉
+        for (var i = 0; i < dateArr.length; i++) {
+            if (dateArr[i] >= 1 && dateArr[i] <= 9) {
+                dateArr[i] = "0" + dateArr[i];
+            }
+        }
+        var strDate =
+            year +
+            "/" +
+            dateArr[0] +
+            "/" +
+            dateArr[1] +
+            " " +
+            dateArr[2] +
+            ":" +
+            dateArr[3] +
+            ":" +
+            dateArr[4];
+
+            return strDate;
+        },
 
       saveAndUpdateNoticeInfo(){
         this.form.userType = '2';
         this.form.senderId = sessionStorage.getItem('userId')
+        this.form.noticeTime = this.currentTime()
         saveAndUpdateNoticeInfo(this.form).then(res =>{
           if (res.code === 1){
             if (this.form.id == null){
@@ -184,7 +221,7 @@
       },
     downloadPaper(url, name) {// 下载图片地址和图片名
     window.location.href = url;
-
+    
     },
       editNoticeInfo(row){
         this.form.id = row.id;

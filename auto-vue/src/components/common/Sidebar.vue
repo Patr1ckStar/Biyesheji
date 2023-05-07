@@ -125,14 +125,14 @@ export default {
                         "title":"申请审批",
                         "subs":null
                     },
-                    {
-                                "id":9,
-                                "pid":4,
-                                "icon":"el-icon-tongzhizhongxin",
-                                "index":"Notice",
-                                "title":"通知管理",
-                                "subs":null
-                            },
+                    // {
+                    //             "id":9,
+                    //             "pid":4,
+                    //             "icon":"el-icon-tongzhizhongxin",
+                    //             "index":"Notice",
+                    //             "title":"通知管理",
+                    //             "subs":null
+                    //         },
                     {   
                         "id":4,
                         "pid":1,
@@ -193,14 +193,14 @@ export default {
                             "title":"我的薪资",
                             "subs":null
                     },
-                    {
-                            "id":9,
-                            "pid":4,
-                            "icon":"el-icon-tongzhizhongxin",
-                            "index":"MyNotice",
-                            "title":"我的通知",
-                            "subs":null
-                        },
+                    // {
+                    //         "id":9,
+                    //         "pid":4,
+                    //         "icon":"el-icon-tongzhizhongxin",
+                    //         "index":"MyNotice",
+                    //         "title":"我的通知",
+                    //         "subs":null
+                    //     },
                     ],
             itemList3:[
                     {
@@ -235,14 +235,14 @@ export default {
                         "title":"我的薪资",
                         "subs":null
                     },
-                    {
-                                "id":9,
-                                "pid":4,
-                                "icon":"el-icon-tongzhizhongxin",
-                                "index":"MyNotice",
-                                "title":"我的通知",
-                                "subs":null
-                    },
+                    // {
+                    //             "id":9,
+                    //             "pid":4,
+                    //             "icon":"el-icon-tongzhizhongxin",
+                    //             "index":"MyNotice",
+                    //             "title":"我的通知",
+                    //             "subs":null
+                    // },
                     {
                         "id":4,
                         "pid":1,

@@ -23,6 +23,8 @@
 				<el-table-column type="selection" header-align="center" align="center" width="50"></el-table-column>
 				<el-table-column prop="realName" label="姓名" header-align="center" align="center"></el-table-column>
 				<el-table-column prop="phone" label="电话" header-align="center" align="center"></el-table-column>
+				<!-- <el-table-column prop="jobName" label="岗位" header-align="center" align="center"></el-table-column>
+				<el-table-column prop="depName" label="部门" header-align="center" align="center"></el-table-column> -->
 				<el-table-column prop="education" label="学历" header-align="center" align="center"></el-table-column>
 				<el-table-column prop="imageUrl" label="照片" header-align="center" align="center">
 					<template slot-scope="scope">

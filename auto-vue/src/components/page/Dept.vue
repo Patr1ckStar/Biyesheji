@@ -75,6 +75,7 @@
 <el-dialog :visible.sync="lookUserlistDialog">
 	<el-table :data="userlist">
 		<el-table-column prop="realName" label="员工姓名"></el-table-column>
+    <!-- <el-table-column prop="jobName" label="职位"></el-table-column> -->
 	</el-table>
 </el-dialog>
     </div>
@@ -121,6 +122,7 @@
 		LookDeptUser(row){
 			this.userlist = row.userList
 			this.lookUserlistDialog = true
+      console.log(this.userlist)
 		},
       /**
        * 获取所有部门信息

@@ -7,7 +7,8 @@
         </el-breadcrumb-item>
       </el-breadcrumb>
     </div>
-    <div class="container" v-if="dataReady">
+    <!-- <div class="container" v-if="dataReady"> -->
+    <div class="container" >
       <div class="handle-box">
         <el-input v-model="query.notice" placeholder="请输入公告内容" class="handle-input mr10"></el-input>
         <el-button type="primary" icon="el-icon-search" @click="getNoticeInfo" style="margin-left: 20px">查询</el-button>
@@ -29,12 +30,13 @@
               header-cell-class-name="table-header"
       >
         <el-table-column type="index" label="编号" width="80" align="center"></el-table-column>
-        <el-table-column prop="senderId" label="发布人"  align="center"></el-table-column>
+        <el-table-column prop="noticeTime" label="通知时间"  align="center"></el-table-column>
+        <el-table-column prop="senderId" label="通知人"  align="center"></el-table-column>
         <el-table-column prop="receiverId" label="通知对象"  align="center"></el-table-column>
         <el-table-column prop="notice" label="通知内容"  align="center"></el-table-column>
         <el-table-column prop="documentName" label="附件" align="center">
           <template slot-scope="scope">
-            <span style="cursor: pointer;color: green" v-if="scope.row.documentUrl !=null" @click="downloadPaper(scope.row.documentUrl,scope.row.realname)">文件</span>
+            <span style="cursor: pointer;color: green" v-if="scope.row.documentUrl !=null" @click="downloadPaper(scope.row.documentUrl,scope.row.realname)">下载文件</span>
             <span v-else>暂无</span>
           </template>
         </el-table-column>
@@ -132,22 +134,26 @@
       getData() {
         getNoticeList(this.query).then(res => {
           if (res.code === 1) {
-            var num=res.data.endRow
-            var i=0;
-            var j=0;
-            for ( i = 0; i < num; i++) {
-              if((res.data.list[i].receiverId==0)
-                  ||(res.data.list[i].receiverId == sessionStorage.getItem('userId'))
-                  ||res.data.list[i].senderId==sessionStorage.getItem('userId')){
-                this.tableData[j] = res.data.list[i]
-                j++;
-              }
-            }
+            // var num=res.data.endRow
+            // console.log(res)
+            // var i=0;
+            // var j=0;
+            // for ( i = 0; i < num; i++) {
+            //   if((res.data.list[i].receiverId==0)
+            //       ||(res.data.list[i].receiverId == sessionStorage.getItem('userId'))
+            //       ||res.data.list[i].senderId==sessionStorage.getItem('userId')){
+            //     this.tableData[j] = res.data.list[i]
+            //     j++;
+            //   }
+            // }
+            // console.log(res.data.total)
+            // console.log(this.tableData)
             
-            // this.tableData = res.data.list;
-            // this.pageTotal = res.data.total;
-            console.log(this.tableData)
-            this.dataReady = true
+
+            this.tableData = res.data.list;
+            this.pageTotal = res.data.total;
+
+            // this.dataReady = true
           }else {
             this.$message.error('数据回显异常')
           }
@@ -169,9 +175,49 @@
         this.form = {};
       },
 
+      currentTime() {
+        var date = new Date();
+        var year = date.getFullYear(); //月份从0~11，所以加一
+        let month = date.getMonth();
+        console.log("month",month);
+        var dateArr = [
+            date.getMonth() + 1,
+            date.getDate(),
+            date.getHours(),
+            date.getMinutes(),
+            date.getSeconds(),
+        ];
+        //如果格式是MM则需要此步骤，如果是M格式则此循环注释掉
+        for (var i = 0; i < dateArr.length; i++) {
+            if (dateArr[i] >= 1 && dateArr[i] <= 9) {
+                dateArr[i] = "0" + dateArr[i];
+            }
+        }
+        var strDate =
+            year +
+            "/" +
+            dateArr[0] +
+            "/" +
+            dateArr[1] +
+            " " +
+            dateArr[2] +
+            ":" +
+            dateArr[3] +
+            ":" +
+            dateArr[4];
+
+            return strDate;
+        },
+
+      downloadPaper(url, name) {// 下载图片地址和图片名
+          window.location.href = url;
+    
+      },
+
       saveAndUpdateNoticeInfo(){
         this.form.userType = '2';
         this.form.senderId = sessionStorage.getItem('userId')
+        this.form.noticeTime = this.currentTime()
         saveAndUpdateNoticeInfo(this.form).then(res =>{
           if (res.code === 1){
             if (this.form.id == null){
